@@ -32,9 +32,9 @@ int main(void) {
 
 		printf("ERROR");
 		return -1;
-	}
+	} //incializo el array con la funcion initPassengers, en caso de haber algun error terminamos el programa
 
-	while(opcion!=6)
+	while(opcion!=6) //Uso un switch dentro de un  while para hacer un menu
 	{
 		printf("\n1-Altas\n"
 				"2-Modificar\n"
