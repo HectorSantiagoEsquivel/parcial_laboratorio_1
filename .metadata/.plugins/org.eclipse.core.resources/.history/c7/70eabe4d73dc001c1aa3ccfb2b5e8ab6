@@ -1,0 +1,14 @@
+/*
+ * funcionesCensista.c
+ *
+ *  Created on: 25 May 2022
+ *      Author: Santiago
+ */
+
+struct
+{
+	int legajoCensista;
+	char nombre[51];
+	int edad;
+	int telefono;
+}typedef censista;

@@ -1,0 +1,124 @@
+/*
+ * funcionesVivienda.c
+ *
+ *  Created on: 25 May 2022
+ *      Author: Santiago
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include "utn_get.h"
+#include "funcionesVivienda.h"
+#include "funcionesCensista.h"
+
+int iniVivienda(vivienda* lista, int len)
+{
+	int retorno = -1;
+	if (lista != NULL && len > 0) {
+		retorno=0;
+		for (int i = 0; i < len; i++) {
+			(lista+i)->legajoCensista = 0;//Buscamos todos los subindices del array y cambiamos el campo isEmpty a 1 para indicar que esta vacio
+		}
+	}
+
+	return retorno;
+}
+
+int buscarIndiceVacioV (vivienda* lista, int len)
+{
+
+	int retorno = -1;
+	if (lista != NULL && len > 0) {
+		for (int i = 0; i < len; i++) {
+			if (lista[i].legajoCensista == 0) {
+				retorno = i;
+				break; //esta funcion busca todos los espacios del array hasta encontrar un subindice vacio, cuando lo encuentra lo guarda como retorno y usamos break para parar de iterar
+			}
+		}
+	}
+	return retorno;
+
+}
+
+int cargarVivienda(vivienda* listaV, int lenV, censista* listaC, int lenC)
+{
+	int retorno = -1;
+	int idIngresado;
+	char calleIngresada[25];
+	int cantidadPersonasIngresada;
+	int cantidadHabitacionesIngresada;
+	int tipoViviendaIngresada;
+	int legajoCensistaIngresado;
+	int indiceVacio;
+	int validacionIDCensista=-1;
+
+	if (listaV != NULL && lenV > 0) {
+		indiceVacio = buscarIndiceVacioV(listaV, lenV);//Llamamos a la funcion lookEmptyIndex para poder encontrar un subindice vacio
+		if (indiceVacio != -1) {
+
+			if((utn_getAlnumstr(calleIngresada, "Ingrese la calle", "\nCalle invalida\n")==-1) ||
+			(utn_getInt(&cantidadPersonasIngresada, "Ingrese la Cantidad de Personas", "\nCantidad Invalida\n",500000,15000,100)==-1) ||
+			(utn_getInt(&cantidadHabitacionesIngresada, "Ingrese cantidad de habitaciones", "\nPor favor ingrese un numero valido\n", 10, 1, 100)==-1) ||
+			(utn_getInt(&tipoViviendaIngresada, "Ingrese el tipo de vivienda\n1-Casa\n2-Departamento\n3-Casilla\n4-Rancho", "\nPor favor ingrese el tipo de vivienda\n", 4, 1, 100)==-1)){
+
+				strcpy((*(listaV+indiceVacio)).calle, calleIngresada);
+				(*(listaV+indiceVacio)).cantidadPersonas=cantidadPersonasIngresada;
+				(*(listaV+indiceVacio)).cantidadHabitaciones=cantidadHabitacionesIngresada;
+				(*(listaV+indiceVacio)).cantidadHabitaciones=cantidadHabitacionesIngresada;
+				(*(listaV+indiceVacio)).idVivienda=2000+indiceVacio;
+
+				while(validacionIDCensista==-1){
+
+					utn_getInt(&legajoCensistaIngresado,"\nIngrese el legajo del Censista a asignar","\nPor favor Ingrese un legajo valido", 999,100,100);
+					validacionIDCensista=BuscarCensistaPorID(listaC,lenC, legajoCensistaIngresado);
+					if(validacionIDCensista==-1){
+						printf("No se ha encontrado el legajo de censista ingresado, por favor ingrese de nuevo");
+					}else{
+						(*(listaV+indiceVacio)).legajoCensista=legajoCensistaIngresado;
+					}
+				}
+
+			}
+			retorno = 0;
+		}
+
+	}
+	return retorno;
+
+}
+
+void mostrarVivienda(vivienda viviendaIngresada, int showHeader)
+{
+	char tipoVivienda[51];
+
+
+
+	if (viviendaIngresada.legajoCensista == 0){
+
+		  // usamos showHeader para saber si debemos mostrar un encabezado, o si este se mostrara a traves de la funcion printPassenger
+		  if(showHeader==1){
+				printf("\n+-----+--------------------+--------------------+---------+--------------+---------------+\n");
+				printf("|%-5s|%-20s|%-20s|%-9s|%-13s|%-15s|\n","ID", "Calle", "Tipo de Vivienda", "Personas", "Habitaciones", "Legajo Censista");
+				printf("+-----+--------------------+--------------------+---------+--------------+---------------+\n");
+
+		  }
+
+		  if(viviendaIngresada.tipoVivienda==1){
+			  strcpy(tipoVivienda,"Casa");
+		  }else if(viviendaIngresada.tipoVivienda==2){
+			  strcpy(tipoVivienda,"Departamento");
+		  }else if(viviendaIngresada.tipoVivienda==3){
+			  strcpy(tipoVivienda,"Casilla");
+		  }else{
+			  strcpy(tipoVivienda,"Rancho");
+		  }//usamos un if else if  para saber a que clase pertenece el pasajero ingresado y poder mostrarlo como una cadena de caracteres
+
+
+
+		  //hacemos un printf de una sola linea
+		  printf("|%-5d|%-20s|%-20s|%-9d|%-13d|%-15d|\n", viviendaIngresada.idVivienda, viviendaIngresada.calle, tipoVivienda,viviendaIngresada.cantidadPersonas ,viviendaIngresada.cantidadHabitaciones ,viviendaIngresada.legajoCensista);
+		  printf("+-----+--------------------+--------------------+---------+--------------+---------------+\n");
+	}
+}

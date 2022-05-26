@@ -1,0 +1,82 @@
+/*
+ * funcionesVivienda.c
+ *
+ *  Created on: 25 May 2022
+ *      Author: Santiago
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include "utn_get.h"
+#include "funcionesVivienda.h"
+
+int iniVivienda(vivienda* lista, int len)
+{
+	int retorno = -1;
+	if (lista != NULL && len > 0) {
+		retorno=0;
+		for (int i = 0; i < len; i++) {
+			*(lista+i)->legajoCensista = 0;//Buscamos todos los subindices del array y cambiamos el campo isEmpty a 1 para indicar que esta vacio
+		}
+	}
+
+	return retorno;
+}
+
+int buscarIndiceVacioV (vivienda* lista, int len)
+{
+
+	int retorno = -1;
+	if (lista != NULL && len > 0) {
+		for (int i = 0; i < len; i++) {
+			if (lista[i].legajoCensista == 0) {
+				retorno = i;
+				break; //esta funcion busca todos los espacios del array hasta encontrar un subindice vacio, cuando lo encuentra lo guarda como retorno y usamos break para parar de iterar
+			}
+		}
+	}
+	return retorno;
+
+}
+
+int cargarVivienda(vivienda* lista, int len)
+{
+	int retorno = -1;
+	int idIngresado;
+	char calleIngresada[25];
+	int cantidadPersonasIngresada;
+	int cantidadHabitacionesIngresada;
+	int tipoViviendaIngresada;
+	int legajoCensistaIngresado;
+	int indiceVacio;
+
+	if (lista != NULL && len > 0) {
+		indiceVacio = buscarIndiceVacioV(lista, len);//Llamamos a la funcion lookEmptyIndex para poder encontrar un subindice vacio
+		if (indiceVacio != -1) {
+
+			if((utn_getAlphastr(calleIngresada, "Ingrese el nombre del pasajero", "\nNombre invalido\n")==-1) ||
+			(utn_getInt(&cantidadPersonasIngresada, "Ingrese el costo del vuelo", "\nCosto invalido\n",500000,15000,100)==-1) ||
+			(utn_getInt(&cantidadHabitacionesIngresada, "Ingrese clase del pasajero\n1-Turista\n2-Ejecutiva\n3-P.Clase", "\nPor favor ingrese el numero de clase\n", 3, 1, 100)==-1) ||
+			(utn_getInt(&tipoViviendaIngresada, "Ingrese el estado del vuelo\n1-Activo\n2-Retrasado\n3-Cancelado", "\nPor favor ingrese el numero de estado\n", 3, 1, 100)==-1) ||
+			(utn_getIntiAlnumstr(legajoCensistaIngresado, "Ingrese el codigo de vuelo", "\nCodigo invalido\n")==-1)){
+
+
+				*(lista)
+				*(lista+indiceVacio)->legajoCensista=legajoCensistaIngresado;
+				strcpy(*(lista+indiceVacio)->calle, calleIngresada);
+				*(lista+indiceVacio)->cantidadPersonas=cantidadPersonasIngresada;
+				*(lista+indiceVacio)->cantidadHabitaciones=cantidadHabitacionesIngresada;
+				*(lista+indiceVacio)->cantidadHabitaciones=cantidadHabitacionesIngresada;
+
+
+			}
+			retorno = 0;
+		}
+
+	}
+	return retorno;
+
+}
+

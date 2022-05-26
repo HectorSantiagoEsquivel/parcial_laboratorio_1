@@ -1,0 +1,28 @@
+/*
+ * funcionesCensista.c
+ *
+ *  Created on: 25 May 2022
+ *      Author: Santiago
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include "utn_get.h"
+#include "funcionesVivienda.h"
+#include "funcionesCensista.h"
+
+int BuscarCensistaPorID(censista* lista, int len,int id)
+{
+	int retorno = -1;
+	if (lista != NULL && len > 0 && id > 0) {
+		for (int i = 0; i < len; i++) {
+			if (**(lista+i)->legajoCensista == id) {
+				retorno = i;
+				break;//esta funcion busca todos los espacios del array hasta encontrar un id igual al que le dimos, cuando lo encuentra lo guarda como retorno y usamos break para parar de iterar
+			}
+		}
+	}
+	return retorno;
+}

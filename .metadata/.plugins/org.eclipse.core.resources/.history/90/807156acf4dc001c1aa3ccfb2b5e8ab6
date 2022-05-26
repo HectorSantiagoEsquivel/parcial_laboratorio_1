@@ -1,0 +1,43 @@
+/*
+ * funcionesVivienda.c
+ *
+ *  Created on: 25 May 2022
+ *      Author: Santiago
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include "utn_get.h"
+#include "funcionesVivienda.h"
+
+int iniVivienda(vivienda* lista, int len)
+{
+	int retorno = -1;
+	if (lista != NULL && len > 0) {
+		retorno=0;
+		for (int i = 0; i < len; i++) {
+			*(lista+i)->legajoCensista = 0;//Buscamos todos los subindices del array y cambiamos el campo isEmpty a 1 para indicar que esta vacio
+		}
+	}
+
+	return retorno;
+}
+
+int buscarIndiceVacioV (vivienda* lista, int len){
+
+	int retorno = -1;
+	if (lista != NULL && len > 0) {
+		for (int i = 0; i < len; i++) {
+			if (lista[i].legajoCensista == 0) {
+				retorno = i;
+				break; //esta funcion busca todos los espacios del array hasta encontrar un subindice vacio, cuando lo encuentra lo guarda como retorno y usamos break para parar de iterar
+			}
+		}
+	}
+	return retorno;
+
+}
+
+

@@ -1,0 +1,23 @@
+/*
+ * funcionesVivienda.h
+ *
+ *  Created on: 25 May 2022
+ *      Author: Santiago
+ */
+
+#ifndef FUNCIONESVIVIENDA_H_
+#define FUNCIONESVIVIENDA_H_
+
+struct
+{
+	int idVivenda;
+	char calle[25];
+	int cantidadPersonas;
+	int cantidadHabitaciones;
+	int tipoVivienda;
+	int legajoCensista;
+}typedef censista;
+
+
+
+#endif /* FUNCIONESVIVIENDA_H_ */

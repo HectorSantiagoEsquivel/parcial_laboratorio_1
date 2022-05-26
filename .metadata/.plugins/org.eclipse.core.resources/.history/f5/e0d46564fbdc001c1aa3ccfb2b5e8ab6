@@ -1,0 +1,102 @@
+/*
+ * funcionesVivienda.h
+ *
+ *  Created on: 25 May 2022
+ *      Author: Santiago
+ */
+
+#ifndef FUNCIONESVIVIENDA_H_
+#define FUNCIONESVIVIENDA_H_
+
+struct
+{
+	int idVivenda;
+	char calle[25];
+	int cantidadPersonas;
+	int cantidadHabitaciones;
+	int tipoVivienda;
+	int legajoCensista;
+}typedef vivienda;
+
+int iniVivienda(vivienda* lista, int len);
+
+/**
+ * @brief add in a existing list of passengers the values received as parameters in the first empty position
+ * @param list
+ * @param len
+ * @param id
+ * @param name
+ * @param lastName
+ * @param price
+ * @param typePassenger
+ * @param flycode
+ * @return
+ */
+
+int cargarVivienda(vivienda* lista, int len);
+
+/**
+ * @brief find a Passenger by Id en returns the index position in array.
+ * @param list
+ * @param len
+ * @param id
+ * @return
+ */
+
+int buscarViviendaPorID(vivienda* lista, int len,int id);
+
+/**
+ * @brief Remove a Passenger by Id (put isEmpty Flag in 1)
+ * @param list
+ * @param len
+ * @param id
+ * @return
+ */
+
+int bajarVivienda(vivienda* lista, int len, int id);
+
+
+
+int buscarIndiceVacioV (vivienda* lista, int len);
+
+/**
+ * @brief Sort the elements in the array of passengers, the argument order indicates according to which fields it orders
+ * @param list
+ * @param len
+ * @return
+ */
+
+int ordenarVivienda(vivienda* lista, int len);
+
+/**
+ * @brief print the content of a single passenger
+ * @param registeredPassenger
+ * @param showHeader
+ */
+
+void mostrarVivienda(vivienda registeredPassenger, int showHeader);
+
+/**
+ * @brief print the content of passengers array
+ * @param list
+ * @param length
+ * @return
+ */
+
+int mostrarViviendas(vivienda* lista, int length);
+
+/**
+ * @brief opens a menu in which all the modification options are contained
+ * @param submitedPassenger
+ * @param modifiedPassenger
+ * @return
+ */
+
+int modificarVivienda(vivienda viviendaIngresada, vivienda viviendaModificada);
+
+/**
+ * @brief returns a random value between 1000 and 9999
+ * @return
+ */
+
+#endif /* FUNCIONESVIVIENDA_H_ */
