@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "funcionesCensista.h"
 #include "funcionesVivienda.h"
 #include "utn_get.h"
@@ -23,6 +24,7 @@ int main(void) {
 	int opcion=0;
 	int flag=0;
 	int idIngresado;
+	int indiceMayorCensista=2;
 	vivienda listaViviendas[CANT];
 	censista listaCensistas[] = {{100, "Ana", 34, 12032345},{101, "Juan", 24, 430154678}, {102, "Sol", 47, 590237487}};
 
@@ -121,13 +123,13 @@ int main(void) {
 
 
 				break;
-			case 5: //Opcion 4 Informa los pasajeros
-
-				mostrarCensistas(listaCensistas, CANT);
+			case 5:
+				mostrarViviendasPorCensistas(listaCensistas, 3,listaViviendas, CANT, &indiceMayorCensista);
+				printf("El censista con mas viviendas censadas es: %s %d", ((*(listaCensistas+indiceMayorCensista)).nombre));
 
 				break;
 
-			case 6: //Opcion 6 finaliza el programa
+			case 6:
 
 				printf("Programa Finalizado");
 				break;

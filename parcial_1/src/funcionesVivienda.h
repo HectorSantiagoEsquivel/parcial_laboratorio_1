@@ -53,4 +53,8 @@ int modificarVivienda(vivienda viviendaIngresada, vivienda *viviendaModificada, 
 
 int estaCargado(vivienda* lista, int len);
 
+int mostrarViviendasPorCensista(censista censistaIngresado,vivienda* listaV, int lenV, int* contadorCargado);
+
+int mostrarViviendasPorCensistas(censista* listaC, int lenC,vivienda* listaV, int lenV, int* indiceMayorVporC);
+
 #endif /* FUNCIONESVIVIENDA_H_ */

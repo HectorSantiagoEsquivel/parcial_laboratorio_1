@@ -7,6 +7,8 @@
 
 #ifndef FUNCIONESCENSISTA_H_
 #define FUNCIONESCENSISTA_H_
+
+
 struct
 {
 	int legajoCensista;
@@ -21,5 +23,7 @@ int buscarCensistaPorID(censista* lista, int len,int id);
 void mostrarCensista(censista censistaIngresado, int showHeader);
 
 int mostrarCensistas(censista* lista, int length);
+
+
 
 #endif /* FUNCIONESCENSISTA_H_ */

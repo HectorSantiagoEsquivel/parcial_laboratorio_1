@@ -1,9 +1,6 @@
-13:41:41 **** Incremental Build of configuration Debug for project parcial_1 ****
+15:19:01 **** Incremental Build of configuration Debug for project parcial_1 ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\funcionesVivienda.o" "..\\src\\funcionesVivienda.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\funcionesCensista.o" "..\\src\\funcionesCensista.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parcial_1.o" "..\\src\\parcial_1.c" 
 gcc -o parcial_1.exe "src\\funcionesCensista.o" "src\\funcionesVivienda.o" "src\\parcial_1.o" "src\\utn_get.o" 
 
-13:41:43 Build Finished. 0 errors, 0 warnings. (took 2s.685ms)
+15:19:02 Build Finished. 0 errors, 0 warnings. (took 781ms)
 

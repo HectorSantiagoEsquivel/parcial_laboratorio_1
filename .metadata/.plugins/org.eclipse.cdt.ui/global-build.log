@@ -1,6 +1,18 @@
-13:41:41 **** Incremental Build of configuration Debug for project parcial_1 ****
+15:15:02 **** Incremental Build of configuration Debug for project parcial_1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parcial_1.o" "..\\src\\parcial_1.c" 
+gcc -o parcial_1.exe "src\\funcionesCensista.o" "src\\funcionesVivienda.o" "src\\parcial_1.o" "src\\utn_get.o" 
+Info: Nothing to build for parcial_1
+15:17:04 **** Incremental Build of configuration Debug for project parcial_1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parcial_1.o" "..\\src\\parcial_1.c" 
+gcc -o parcial_1.exe "src\\funcionesCensista.o" "src\\funcionesVivienda.o" "src\\parcial_1.o" "src\\utn_get.o" 
+15:18:53 **** Incremental Build of configuration Debug for project parcial_1 ****
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\funcionesVivienda.o" "..\\src\\funcionesVivienda.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\funcionesCensista.o" "..\\src\\funcionesCensista.c" 
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parcial_1.o" "..\\src\\parcial_1.c" 
+gcc -o parcial_1.exe "src\\funcionesCensista.o" "src\\funcionesVivienda.o" "src\\parcial_1.o" "src\\utn_get.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file parcial_1.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+15:19:01 **** Incremental Build of configuration Debug for project parcial_1 ****
+Info: Internal Builder is used for build
 gcc -o parcial_1.exe "src\\funcionesCensista.o" "src\\funcionesVivienda.o" "src\\parcial_1.o" "src\\utn_get.o" 
