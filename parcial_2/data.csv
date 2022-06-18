@@ -1,0 +1,27 @@
+id_servicio,descripcion,tipo,precioUnitario, cantidad,totalServicio
+61,aplique capucha,1,260.000000,1,0
+67,aplique capucha,1,260.000000,1,0
+63,boton camisa,2,145.000000,120,0
+54,boton camisa,2,145.000000,120,0
+72,boton camisa,2,145.000000,60,0
+60,cambio boton,2,70.000000,10,0
+73,cambio boton,2,70.000000,25,0
+69,cambio cierre,1,700.000000,1,0
+65,cambio cierre,1,700.000000,2,0
+59,cambio cierre,1,700.000000,2,0
+53,cierre pantalon,1,600.000000,4,0
+70,cierre pantalon,1,600.000000,2,0
+52,costura correa mochila,3,450.250000,60,0
+57,costura remera,3,650.000000,60,0
+71,ensamble bolso,3,450.250000,40,0
+58,ensamble bolso,3,450.250000,80,0
+64,ensamble bolso,3,450.250000,50,0
+51,ensamble vestido,2,860.000000,25,0
+74,ensamble vestido,2,860.000000,15,0
+66,forro campera,3,365.600006,150,0
+55,forro piloto,3,324.660004,156,0
+62,ruedo pantalon,1,250.000000,2,0
+50,ruedo pantalon,1,250.000000,2,0
+56,vicera,3,450.000000,180,0
+68,vicera,3,450.000000,160,0
+
