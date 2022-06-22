@@ -231,6 +231,12 @@ int eServicio_showServicio(eServicio* this, int showHeader)
 {
 	int retorno=-1;
 	char tipoServicioStr[51];
+	int id;
+	char descripcion[51];
+	int tipo;
+	float precioUnitario;
+	int cantidad;
+	float totalServicio;
 
 
 	if (this != NULL){
@@ -243,11 +249,19 @@ int eServicio_showServicio(eServicio* this, int showHeader)
 
 		  }
 		  retorno=0;
-		  intTypeToChar(this->tipo,tipoServicioStr);
+
+		  eServicio_getId(this,&id);
+		  eServicio_getDescripcion(this, descripcion);
+		  eServicio_getTipo(this,&tipo);
+		  eServicio_getPrecioUnitario(this,&precioUnitario);
+		  eServicio_getCantidad(this,&cantidad);
+		  eServicio_getTotalServicio(this,&totalServicio);
+
+		  intTypeToChar(tipo,tipoServicioStr);
 
 
 		  //hacemos un printf de una sola linea
-		  printf("|%-5d|%-25s|%-20s|%-15.2f|%-10d|%-15.2f|\n", this->id, this->descripcion,tipoServicioStr,this->precioUnitario,this->cantidad,this->totalServicio);
+		  printf("|%-5d|%-25s|%-20s|%-15.2f|%-10d|%-15.2f|\n", id,descripcion,tipoServicioStr,precioUnitario,cantidad,totalServicio);
 		  printf("+-----+-------------------------+--------------------+---------------+----------+---------------+\n");
 
 	}
